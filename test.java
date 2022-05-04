@@ -32,8 +32,6 @@ public class test {
 
 
 
-
-
         grid = ReadMapFile();
 
 
