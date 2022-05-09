@@ -4,7 +4,7 @@ X________X
 X________X
 X____O___X
 X________X
-X_O______X
+X_O_______
 X________X
 X____XXXXX
 XXXXXXXXXX
