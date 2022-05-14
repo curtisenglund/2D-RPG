@@ -15,16 +15,16 @@ public class Board {
       for (int i = 0; i < board.Board.length; i++) {
          for (int j = 0; j < board.Board[i].length; j++) {
             if (i == 0){
-               board.Board[i][j] = new BoardTile("^^");
+               board.Board[i][j] = new BoardTile("^");
             
             } else if ( i == board.Board.length - 1){
-               board.Board[i][j] = new BoardTile("__");
+               board.Board[i][j] = new BoardTile("_");
             } else if ( j == 0 || j == board.Board.length - 1){
-               board.Board[i][j] = new BoardTile("| ");
+               board.Board[i][j] = new BoardTile("|");
             } else {
               // int randomTile = rand.nextInt(10);
               // if (randomTile <= 8){
-                  board.Board[i][j] = new BoardTile("  ");
+               board.Board[i][j] = new BoardTile(" ");
               // } else {
               //    board.Board[i][j] = new BoardTile(" X");
               // }
@@ -50,16 +50,78 @@ public class Board {
 
 	// Below were experimental but I'm saving them at the moment
 
-	public static void movePlayerUp(Board Board, int x, int y){
-      Board.Board[y][x] = new BoardTile("  ");
-      Board.Board[y][x - 1] = new BoardTile(true);
-      Hero.setHeroXPos(y - 1);
+   public static void movePlayerUp(Board Board){
+      
+      
+      if(Board.walkable(Board, Hero.getHeroYPos() - 1, Hero.getHeroXPos()) == true){
+      
+         Board.Board[Hero.getHeroYPos() - 1][Hero.getHeroXPos()] = new BoardTile(true);
+         Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos()] = new BoardTile(" ");
+         Hero.setHeroYPos(Hero.getHeroYPos() - 1);
+         
+      } else {
+         System.out.println("pressed w but can't move UP");
+      
+      }
+      Board.printBoard(Board);
+   
+   }
+   
+   public static void movePlayerDown(Board Board){
+      
+      
+      if(Board.walkable(Board, Hero.getHeroYPos() + 1, Hero.getHeroXPos()) == true){
+      
+         Board.Board[Hero.getHeroYPos() + 1][Hero.getHeroXPos()] = new BoardTile(true);
+         Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos()] = new BoardTile(" ");
+         Hero.setHeroYPos(Hero.getHeroYPos() + 1);
+         
+      } else {
+         System.out.println("pressed S but can't move DOWN");
+      
+      }
+      Board.printBoard(Board);
+   
+   }
+   
+   public static void movePlayerRight(Board Board){
+      
+      
+      if(Board.walkable(Board, Hero.getHeroYPos(), Hero.getHeroXPos() + 1) == true){
+      
+         Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos() + 1] = new BoardTile(true);
+         Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos()] = new BoardTile(" ");
+         Hero.setHeroXPos(Hero.getHeroXPos() + 1);
+         
+      } else {
+         System.out.println("pressed D but can't move RIGHT");
+      
+      }
+      Board.printBoard(Board);
+   
+   }
+   
+   
+   public static void movePlayerLeft(Board Board){
+      
+      
+      if(Board.walkable(Board, Hero.getHeroYPos(), Hero.getHeroXPos() - 1) == true){
+      
+         Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos() - 1] = new BoardTile(true);
+         Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos()] = new BoardTile(" ");
+         Hero.setHeroXPos(Hero.getHeroXPos() - 1);
+         
+      } else {
+         System.out.println("pressed A but can't move LEFT");
+      
+      }
+      Board.printBoard(Board);
+   
+   }
 
-	}
-
-	public static boolean getContent(Board Board, int x, int y){
-	   return BoardTile.getTileContent(Board.Board[y][x]);
-	}
+   public static boolean walkable(Board Board, int y, int x){
+      return BoardTile.walkable(Board.Board[y][x]);
+   }
 	//
 	// public static void setTileAs(Board newBoard, int x, int y, int
 	// newContent){

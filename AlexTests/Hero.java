@@ -1,6 +1,6 @@
 public class Hero{
-    private int health;
-    private int damage;
+   private int health;
+   private int damage;
 
 
    public Hero(int health, int damage){
@@ -9,32 +9,32 @@ public class Hero{
    }
    
 
-    public int getHealthHero(){
-        return health;
-    }
+   public int getHealthHero(){
+      return health;
+   }
 
-    public void setHealthHero(){
-        this.health = health-damage;
-    }
+   public void setHealthHero(){
+      this.health = health-damage;
+   }
 
   //Player Position
-    private static int xCoordinate = 5;
-    private static int yCoordinate = 5;
+   private static int xCoordinate = 5;
+   private static int yCoordinate = 5; // Array Coords look like Array[y][x]
 
 
-    public int getHeroXPos(){
-        return this.xCoordinate;
-    }
+   public static int getHeroXPos(){
+      return xCoordinate;
+   }
 
-    public int getHeroYPos(){
-        return this.yCoordinate;
-    }
+   public static int getHeroYPos(){
+      return yCoordinate;
+   }
 
-    public static void setHeroYPos(int y){
-        yCoordinate = y;
-    }
+   public static void setHeroYPos(int y){
+      yCoordinate = y;
+   }
 
-    public static void setHeroXPos(int x){
-        xCoordinate = x;
-    }
+   public static void setHeroXPos(int x){
+      xCoordinate = x;
+   }
 }
