@@ -1,24 +1,27 @@
+import javax.swing.*;
+import java.awt.Color;
+
 
 public class BoardTile {
-   private String tileRepresentation;
-   private boolean isEmpty;
+
+   //private ImageIcon tileIcon;
+   private String tileRepresentation;// this is for the print statement tests
+   private boolean isEmpty;// false if has player or wall
    
    
    //Change to different tile types instead? dif objects?
    public BoardTile(String tileRepresentation){
-      if (tileRepresentation == "^" || tileRepresentation == "_" || tileRepresentation == "|" ){
-         this.tileRepresentation = tileRepresentation;
+      //ImageIcon sandIcon = new ImageIcon("art/SandJPG.png");
+   
+      // Basic Square map for test purposes
+      // Need to Add Enemy Representation
+      if (tileRepresentation == "^" || tileRepresentation == "_" || tileRepresentation == "|" ||
+                        tileRepresentation == "P" || tileRepresentation == "E" ){
+         this.tileRepresentation = tileRepresentation; //assigns tileRep field
          this.isEmpty = false;
       } else {
          this.tileRepresentation = " ";
          this.isEmpty = true;
-      }
-   }
-   
-   public BoardTile(boolean hasPlayer){
-      if(hasPlayer){
-         this.tileRepresentation = "P";
-         this.isEmpty = false;
       }
    }
 	

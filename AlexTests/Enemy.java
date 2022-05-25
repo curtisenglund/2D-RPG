@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Hero
+public class Enemy
 {
     private int healthEnemy = 200;
     private int lightAttack = 50;
@@ -50,25 +50,25 @@ public class Hero
     		stamina += 30;
     	}
     } // end of setHealthEnemy method
+    
+        //Enemy Position
+    private static int xCoordinate = 8;
+    private static int yCoordinate = 8;
 
-    //Player Position
-    private static int xCoordinate = 5;
-    private static int yCoordinate = 5;
 
-
-    public static int getHeroXPos(){
+    public static int getEnemyXPos(){
         return xCoordinate;
     }
 
-    public static int getHeroYPos(){
+    public static int getEnemyYPos(){
         return yCoordinate;
     }
 
-    public static void setHeroYPos(int y){
+    public static void setEnemyYPos(int y){
         yCoordinate = y;
     }
 
-    public static void setHeroXPos(int x){
+    public static void setEnemyXPos(int x){
         xCoordinate = x;
     }
 }

@@ -22,21 +22,13 @@ public class Board {
             } else if ( j == 0 || j == board.Board.length - 1){
                board.Board[i][j] = new BoardTile("|");
             } else {
-              // int randomTile = rand.nextInt(10);
-              // if (randomTile <= 8){
                board.Board[i][j] = new BoardTile(" ");
-              // } else {
-              //    board.Board[i][j] = new BoardTile(" X");
-              // }
             }
-         
-            
          }
-      	// New BoardTile(1) sets the value of the tile to an int --- 1
-      	// Was just using 1 to represent empty at the moment
-      	// But we can change the int to a field or whatever we want within
-      	// the BoardTile class
       }
+      //for player and enemy starting positions
+      board.Board[Hero.getHeroYPos()][Hero.getHeroXPos()] = new BoardTile("P");
+      board.Board[Enemy.getEnemyYPos()][Enemy.getEnemyXPos()] = new BoardTile("E");
    }
 
    public static void printBoard(Board board) {
@@ -47,24 +39,23 @@ public class Board {
          System.out.println();
       }
    }
+   
 
-	// Below were experimental but I'm saving them at the moment
+	// Below is Player movement based on WASD.
+   // Kinda ugly could clean up/consolidate based on keyed input
 
    public static void movePlayerUp(Board Board){
       
-      
       if(Board.walkable(Board, Hero.getHeroYPos() - 1, Hero.getHeroXPos()) == true){
       
-         Board.Board[Hero.getHeroYPos() - 1][Hero.getHeroXPos()] = new BoardTile(true);
+         Board.Board[Hero.getHeroYPos() - 1][Hero.getHeroXPos()] = new BoardTile("P");
          Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos()] = new BoardTile(" ");
          Hero.setHeroYPos(Hero.getHeroYPos() - 1);
          
       } else {
          System.out.println("pressed w but can't move UP");
-      
       }
       Board.printBoard(Board);
-   
    }
    
    public static void movePlayerDown(Board Board){
@@ -72,60 +63,54 @@ public class Board {
       
       if(Board.walkable(Board, Hero.getHeroYPos() + 1, Hero.getHeroXPos()) == true){
       
-         Board.Board[Hero.getHeroYPos() + 1][Hero.getHeroXPos()] = new BoardTile(true);
+         Board.Board[Hero.getHeroYPos() + 1][Hero.getHeroXPos()] = new BoardTile("P");
          Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos()] = new BoardTile(" ");
          Hero.setHeroYPos(Hero.getHeroYPos() + 1);
          
       } else {
          System.out.println("pressed S but can't move DOWN");
-      
       }
       Board.printBoard(Board);
-   
    }
    
    public static void movePlayerRight(Board Board){
-      
-      
+
       if(Board.walkable(Board, Hero.getHeroYPos(), Hero.getHeroXPos() + 1) == true){
-      
-         Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos() + 1] = new BoardTile(true);
+
+         Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos() + 1] = new BoardTile("P");
          Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos()] = new BoardTile(" ");
          Hero.setHeroXPos(Hero.getHeroXPos() + 1);
-         
+
       } else {
          System.out.println("pressed D but can't move RIGHT");
-      
       }
       Board.printBoard(Board);
-   
    }
    
    
    public static void movePlayerLeft(Board Board){
-      
-      
+
       if(Board.walkable(Board, Hero.getHeroYPos(), Hero.getHeroXPos() - 1) == true){
-      
-         Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos() - 1] = new BoardTile(true);
+
+         Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos() - 1] = new BoardTile("P");
          Board.Board[Hero.getHeroYPos()][Hero.getHeroXPos()] = new BoardTile(" ");
          Hero.setHeroXPos(Hero.getHeroXPos() - 1);
          
       } else {
          System.out.println("pressed A but can't move LEFT");
-      
       }
       Board.printBoard(Board);
-   
    }
 
+
+   //returns true if tile is walkable. IE doesn't have a wall or character on it.
    public static boolean walkable(Board Board, int y, int x){
       return BoardTile.walkable(Board.Board[y][x]);
    }
-	//
-	// public static void setTileAs(Board newBoard, int x, int y, int
-	// newContent){
-	// newBoards[x][y].tileContent = newContent;
-	// }
-
+   
+ //   public static int[][] checkForMeleeRange(){
+//       int[][] enemyCoordArray = new int[][];
+//       int x = Hero.getHeroXPos();
+//       int y = Hero.getHeroYPos();
+//    }
 }

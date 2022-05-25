@@ -1,35 +1,47 @@
 import java.util.*;
+import java.awt.*;
 
 public class AlexMainMove {
 
-   public static void main(String[] args) {
+   public static void main(String[] args) {      
+      
+      
       boolean endgame = false;
    
-      Board Board = new Board(10);
-      Hero Hero = new Hero(100, 10);
-   
-      char move = 'n';// creates new board
-      if (move == 'n') {
+      Board Board = new Board(12);
+      Hero Hero = new Hero();
+      Enemy Mob = new Enemy();
+      
+      // Initializes new board
+      char action = 'n';
+      if (action == 'n') {
          Board.populateEmptyBoard(Board);
          Board.printBoard(Board);
       }
-   
+      
+      //Player actions, right now just actionment
       while (!endgame) {
-         System.out.println("W - up\nS - down\nA - left\nD - Right");
+         System.out.println("w - up\ns - down\na - left\nd - Right\nx - attack");
       
          Scanner input = new Scanner(System.in);
-         move = input.next().charAt(0);
+         action = input.next().charAt(0);
       
-         if (move == 'w') {
+         if (action == 'w'){
             Board.movePlayerUp(Board);
-         
-         } else if (move == 's') {
+         } else if (action == 's'){
             Board.movePlayerDown(Board);
-            
-         } else if (move == 'a') {
+         } else if (action == 'a'){
             Board.movePlayerLeft(Board);
-         } else if (move == 'd') {
+         } else if (action == 'd'){
             Board.movePlayerRight(Board);
+         } else if (action == 'x'){
+            //should make Hero and Enemy objects with parameters?
+            System.out.println("Heavy?(enter \"h\") or light attack (enter \"l\"?");
+            String attack = input.next();
+            Mob.setHealthEnemy(attack);
+            System.out.println("Enemy health = " + Mob.getHealthEnemy());
+         } else {
+            System.out.println("Invalid Command");
          }
       }
    }
