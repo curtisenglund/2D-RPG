@@ -56,34 +56,16 @@ public class Window {
 
 
     //Calls repaint on all UI components to update everything in the frame
-   public static void UpdateFrame()
-   {
-        //Repaint panels
+   public static void UpdateFrame(){
       backGroundPanel.repaint();
       entityPanel.repaint();   
-   
       frame.revalidate();
       frame.repaint();
    
    }
-   
-   //not neccessary atm
-   public void UpdatePlayer()
-   {
-        //Repaint panels
-      entityLabel.repaint();
-   }
-   
-   
-   //changed tileIcon to private, make get set methods?
-//    public void addTileToBackground(String tile, int x, int y){
-//       backGroundPanel.add(BoardTile.getIcon(tile, x, y));
-//    }
 
-    
     //Returns a simple JFrame with basic settings
-   public JFrame MakeFrame()
-   {
+   public JFrame MakeFrame(){
       JFrame frame = new JFrame();
       frame.setTitle("2D Game project");
       frame.setSize(1000, 1000);
@@ -96,8 +78,6 @@ public class Window {
       return frame;
    }
 
-
-
     //Returns a simple panel with basic settings
    public JPanel MakePanel()
    {
@@ -106,10 +86,7 @@ public class Window {
       panel.setOpaque(true);
       panel.setLayout(null);
    
-   
-   
       return panel;
-   
    }
    
    public JLabel MakeLabel()

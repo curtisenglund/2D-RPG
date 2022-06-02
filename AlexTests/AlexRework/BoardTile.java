@@ -5,8 +5,8 @@ import java.awt.*;
 public class BoardTile {
 
    //private ImageIcon tileIcon;
-   private JLabel tileIcon;// this is for the print statement tests
-   private boolean isEmpty;// false if has player or wall
+   private JLabel tileIcon;
+   private boolean isEmpty;// false if has player/enemy or wall
    private boolean hasPlayer;
    private boolean hasEnemy;
    
@@ -80,12 +80,22 @@ public class BoardTile {
       }
    }
    
+   public boolean hasEnemy(BoardTile tile){
+      return tile.hasEnemy;
+   }
+   
+   
    public boolean hasPlayer(BoardTile tile){
       return tile.hasPlayer;
    }
    
    public static void setPlayer(BoardTile tile, boolean trueOrFalse){
       tile.hasPlayer = trueOrFalse;
+      tile.isEmpty = !trueOrFalse;
+   }
+   
+   public static void setEnemy(BoardTile tile, boolean trueOrFalse){
+      tile.hasEnemy = trueOrFalse;
       tile.isEmpty = !trueOrFalse;
    }
    

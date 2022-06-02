@@ -79,6 +79,7 @@ public class Hero
       
       switch (directionWASD){
          case "w":
+         
             if(Board.walkable(Board.getBoardArray(), yCoordinate - 1, xCoordinate) == true){
                BoardTile.setPlayer(Board.getBoardArray()[yCoordinate - 1][xCoordinate], true);
                BoardTile.setPlayer(Board.getBoardArray()[yCoordinate][xCoordinate], false);
@@ -97,6 +98,7 @@ public class Hero
             }
             
          case "s":
+         
             if(Board.walkable(Board.getBoardArray(), yCoordinate + 1, xCoordinate) == true){
                BoardTile.setPlayer(Board.getBoardArray()[yCoordinate + 1][xCoordinate], true);
                BoardTile.setPlayer(Board.getBoardArray()[yCoordinate][xCoordinate], false);
@@ -111,11 +113,11 @@ public class Hero
                
             } else {
                System.out.println("pressed s but can't move DOWN");
-               
                break;
             }
             
-            case "a":
+         case "a":
+         
             if(Board.walkable(Board.getBoardArray(), yCoordinate, xCoordinate - 1) == true){
                BoardTile.setPlayer(Board.getBoardArray()[yCoordinate][xCoordinate - 1], true);
                BoardTile.setPlayer(Board.getBoardArray()[yCoordinate][xCoordinate], false);
@@ -130,11 +132,11 @@ public class Hero
                
             } else {
                System.out.println("pressed a but can't move LEFT");
-               
                break;
             }
             
-            case "d":
+         case "d":
+         
             if(Board.walkable(Board.getBoardArray(), yCoordinate, xCoordinate + 1) == true){
                BoardTile.setPlayer(Board.getBoardArray()[yCoordinate][xCoordinate + 1], true);
                BoardTile.setPlayer(Board.getBoardArray()[yCoordinate][xCoordinate], false);
@@ -149,7 +151,6 @@ public class Hero
                
             } else {
                System.out.println("pressed d but can't move RIGHT");
-               
                break;
             }
       } 

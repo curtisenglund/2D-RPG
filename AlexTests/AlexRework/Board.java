@@ -14,8 +14,9 @@ public class Board {
    public static BoardTile[][] getBoardArray(){
       return BoardTileArray;
    }
-
-   public static void populateEmptyBoard(Board board) {
+   
+   //populate array[][] with BoardTiles
+   public static void populateEmptyBoard(Board board, Enemy mob, Enemy mob1) {
       for (int i = 0; i < board.BoardTileArray.length; i++) {
          for (int j = 0; j < board.BoardTileArray[i].length; j++) {
             if (i == 0){
@@ -33,10 +34,14 @@ public class Board {
       //for player and enemy starting positions
       BoardTile.setPlayer(BoardTileArray[Hero.getHeroYPos()][Hero.getHeroXPos()], true);
       Window.entityPanel.add(HeroJLabel.getHeroLabel(), Integer.valueOf(2));
-
-
-     // board.BoardTileArray[Enemy.getEnemyYPos()][Enemy.getEnemyXPos()] = new BoardTile("chest",
-                                                      //Enemy.getEnemyXPos() * 100, Enemy.getEnemyYPos() * 100);
+   
+   //********** add enemies to ADT for each in adt do this
+      BoardTile.setEnemy(BoardTileArray[mob.getEnemyYPos()][mob.getEnemyXPos()], true);
+      Window.entityPanel.add(mob.getEnemyLabel(), Integer.valueOf(2));
+      
+      //for mob 2
+      BoardTile.setEnemy(BoardTileArray[mob1.getEnemyYPos()][mob1.getEnemyXPos()], true);
+      Window.entityPanel.add(mob1.getEnemyLabel(), Integer.valueOf(2));
    }
 
 

@@ -6,10 +6,10 @@ public class HeroJLabel{
    public static JLabel heroLabel;
    
    public HeroJLabel(){
-      this.heroLabel = new JLabel(new ImageIcon(new ImageIcon("player.png")
+      this.heroLabel = new JLabel(new ImageIcon(new ImageIcon("hero.gif")
                                          .getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
       this.heroLabel.setVisible(true);
-      this.heroLabel.setOpaque(true);
+      this.heroLabel.setOpaque(false);
       this.heroLabel.setBounds(Hero.getHeroXPos() * 100, Hero.getHeroYPos() * 100, 100, 100);
 
    }
